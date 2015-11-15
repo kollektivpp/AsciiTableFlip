@@ -40,3 +40,54 @@ td {
   text-align: center;
   width: 100px;
 }
+
+#asciiErrorWrapper {
+    display: none;
+    width: 243px;
+}
+#asciiErrorHeader {
+    background-color:blue;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 22px;
+    line-height: 22px;
+    padding: 0 10px;
+    width: 225px;
+}
+#asciiErrorHeaderText {
+    color:white;
+    border-top:1px solid blue;
+    border-bottom:1px solid blue;
+}
+#asciiErrorHeaderCloseButton {
+    background-color:red;
+    color:white;
+    box-shadow: 0px 0px 0px 1px rgba(0,0,0,1);
+    padding: 0 5px;
+    height: 20px;
+    line-height: 20px;
+    margin-top: 1px;
+}
+.asciiErrorRow {
+    border-right: 1px solid white;
+    border-left: 1px solid white;
+    height: 20px;
+    margin: 1px 0;
+    width: 243px;
+}
+.asciiErrorRow:last-child {
+    border-bottom: 1px solid white;
+}
+.asciiErrorRowText {
+    padding-left: 10px;
+    width: 233px;
+}
+#asciiErrorButton {
+    border: 1px solid white;
+    background-color:#ccc;
+    color: black;
+    margin-left: 10px;
+    text-align: center;
+    width: 40px;
+}

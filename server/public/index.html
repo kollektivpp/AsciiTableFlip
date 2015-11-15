@@ -9,6 +9,19 @@
 <body>
     <div id="viewArea">
       <div id="gameBoard"></div>
+      <div id="asciiErrorWrapper">
+          <div id="asciiErrorHeader">
+              <div id="asciiErrorHeaderText">Error</div>
+              <div id="asciiErrorHeaderCloseButton">x</div>
+          </div>
+          <div class="asciiErrorRow"><br/></div>
+          <div class="asciiErrorRow asciiErrorRowText">Click "Fix" to fix error.</div>
+          <div class="asciiErrorRow"><br/></div>
+          <div class="asciiErrorRow">
+              <div id="asciiErrorButton">Fix</div>
+          </div>
+          <div class="asciiErrorRow"><br/></div>
+      </div>
     </div>
     <script src="/socket.io/socket.io.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>

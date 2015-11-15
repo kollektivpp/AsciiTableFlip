@@ -7,6 +7,10 @@ var GameEngine = GameEngine || {
         self.score = 0;
         self.gamerPosition = 1;
 
+        self.intro();
+    },
+    startGame: function() {
+        var self = this;
         $('#gameBoard').html(self.createGameBoard(self.gameGrid));
 
         self.gameLoop = setInterval(function() {
@@ -50,7 +54,7 @@ var GameEngine = GameEngine || {
     createColumn: function(hasTable) {
         return '<div class="column">' + (hasTable ? 'X' : '') + '</div>'
     },
-    createDance: function() {
+    displayDance: function(elem) {
         var danceCounter = 0;
         this.danceInterval = setInterval(function() {
             var anim = [
@@ -65,12 +69,54 @@ var GameEngine = GameEngine || {
                 '┌(‾◇‾)┘',
                 '└( &#8226;.&#8226; ）┘'
             ];
-            $('#keks').html(anim[danceCounter]);
+            $(elem).html(anim[danceCounter]);
             danceCounter++;
             if (danceCounter > 9) {
                 danceCounter = 0;
             }
         }, 300);
+    },
+    displayDino: function() {
+
+    },
+    displayAsciiError: function(elem) {
+        clearInterval(this.danceInterval);
+        $('#asciiErrorWrapper').show();
+    },
+    displayRage: function(elem) {
+        $(elem).html('Rage');
+    },
+    intro: function() {
+        var done = false;
+        var counter = 0;
+        var self = this;
+
+        self.introInterval = setInterval(function() {
+            if (done) {
+                clearInterval(self.introInterval);
+                return;
+            }
+            switch(counter) {
+                case 0:
+                    $('#gameBoard').html('Once A Time...');
+                    break;
+                case 1:
+                    self.displayDance($('#gameBoard'));
+                    break;
+                case 2:
+                    self.displayAsciiError($('#gameBoard'));
+                    break;
+                case 3:
+                    self.displayRage($('#gameBoard'));
+                    break;
+                case 4:
+                    self.startGame();
+                    done = true;
+                    break;
+            }
+
+            counter++;
+        }, 5000);
     }
 };
 
