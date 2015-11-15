@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>ASCII TableFlip Client</title>
+
+    <style>
+        body {
+            box-sizing: border-box;
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            background-color: gold;
+
+            font-size: 10em;
+            line-height: 100vh;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+
+        socket.on('client index', function(msg) {
+            document.body.innerHTML = msg;
+        })
+
+        document.body.addEventListener('click', function() {
+            socket.emit('client tap');
+        });
+        document.body.addEventListener('touchstart', function() {
+            socket.emit('client tap');
+        });
+
+        socket.emit('connect client');
+    </script>
+</body>
+
+</html>
