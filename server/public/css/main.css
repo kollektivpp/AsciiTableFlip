@@ -26,7 +26,7 @@ td {
     font-size: 20px;
 }
 #scoreValue {
-    
+
 }
 #viewArea {
   /*border: 2px solid red;*/
@@ -137,4 +137,10 @@ td {
     margin-left: 10px;
     text-align: center;
     width: 40px;
+}
+
+#outro {
+    display:none;
+    font-size: 40px;
+    text-align: center;
 }
