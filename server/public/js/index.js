@@ -10,7 +10,12 @@ var GameEngine = GameEngine || {
         self.positionDivs = document.querySelectorAll('#playerStage div');
         self.tickSpeed = 500;
 
-        self.movePlayerToPosition(1);
+		self.movePlayerToPosition(1);
+        self.intro();
+    },
+    startGame: function() {
+        var self = this;
+        $('#gameBoard').show();
         $('#gameBoard').html(self.createGameBoard(self.gameGrid));
     },
     startGameLoop: function() {
@@ -20,10 +25,9 @@ var GameEngine = GameEngine || {
             clearInterval(self.gameLoop);
             return;
           }
-        //   console.log(self.gameGrid[self.gameTickCounter]);
           if (self.gameGrid[self.gameTickCounter] == self.gamerPosition) {
             self.score++;
-            console.log("Boooom");
+            self.setScore(self.score);
           }
 
           self.gameBoard.animate({
@@ -32,6 +36,9 @@ var GameEngine = GameEngine || {
 
           self.gameTickCounter++;
         }, self.tickSpeed);
+    },
+    setScore: function(value) {
+            $('#scoreValue').html(value);
     },
     movePlayerToPosition: function(position) {
         GameEngine.gamerPosition = position;
@@ -62,6 +69,82 @@ var GameEngine = GameEngine || {
     },
     createColumn: function(hasTable) {
         return '<div class="column">' + (hasTable ? 'X' : '') + '</div>'
+    },
+    displayDance: function(elem) {
+        $(elem).show();
+        var danceCounter = 0;
+        this.danceInterval = setInterval(function() {
+            var anim = [
+                '╰(&#8226;.&#8226;╭）',
+                '╰( &#8226;.&#8226; ）╯',
+                '(╮&#8226;.&#8226;）╯',
+                '~(‾▿‾~)',
+                '(~‾▿‾)~',
+                '~(‾▿‾~)',
+                '╰(‾◇‾)╮',
+                '╭(‾◇‾)╮',
+                '╭(‾◇‾)╯',
+                '╰( &#8226;.&#8226; ）╯'
+            ];
+            $(elem).html(anim[danceCounter]);
+            danceCounter++;
+            if (danceCounter > 9) {
+                danceCounter = 0;
+            }
+        }, 300);
+    },
+    displayDino: function() {
+
+    },
+    displayRage: function(elem) {
+        var rageCounter = 0;
+        this.rageInterval = setInterval(function() {
+            var anim = [
+                '╰(ಠ益ಠ）╯',
+                '╮(ಠ益ಠ）╮'
+            ];
+            $(elem).html(anim[rageCounter]);
+            rageCounter++;
+            if (rageCounter > 1) {
+                rageCounter = 0;
+            }
+        }, 200);
+    },
+    intro: function() {
+        var done = false;
+        var counter = 0;
+        var self = this;
+
+        self.introInterval = setInterval(function() {
+            if (done) {
+                clearInterval(self.introInterval);
+                return;
+            }
+            switch(counter) {
+                case 0:
+                    $('#onceATime').hide();
+                    self.displayDance($('#dance'));
+                    break;
+                case 1:
+                    $('#dance').hide();
+                    clearInterval(self.danceInterval);
+                    $('#asciiErrorWrapper').show();
+                    break;
+                case 2:
+                    $('#asciiErrorWrapper').hide();
+                    self.displayRage($('#rage'));
+                    $('#rage').show();
+                    break;
+                case 3:
+                    $('#rage').hide();
+                    clearInterval(self.rageInterval);
+                    self.startGame();
+                    done = true;
+                    break;
+            }
+
+            counter++;
+        }, 5000);
     }
 };
 

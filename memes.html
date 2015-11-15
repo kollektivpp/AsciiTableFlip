@@ -1,81 +1,274 @@
 <!doctype html>
 <html lang="de">
+
 <head>
   <meta charset='utf-8'>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta http-equiv="Content-Language" content="en">
-      <meta name="viewport" content="width=1020">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Language" content="en">
+  <meta name="viewport" content="width=1020">
 </head>
-<body>
 
-<p>
-Complete Meme:<br/>
-(╯°□°）╯︵ ┻━┻
-</p>
-<p>
-Positive Meme:<br/>
-(┐°×°）┐<br/>
-(┐°o°）┐<br/>
-(┐°_°）┐<br/>
-(─*o*）─<br/>
-</p>
-<p>
-Dancing Meme:<br/>
-└(&#8226;.&#8226;┌）<br/>
-└( &#8226;.&#8226; ）┘<br/>
-(┐&#8226;.&#8226;）┘
-</p>
-<p>
-Table Only:<br/>
-┻━┻
-</p>
-<p>
-Flip sign only:<br/>
-︵
-</p>
-<pre>
-              ____
-             /. __)
-            /  /
-      . ^^ /  /
-  __/        /
-<__.|__|-|__|.
-</pre>
-<pre>
- _______________________________
-|<span style="background-color:blue;color:white;border-top:1px solid blue;border-bottom:1px solid blue;"> Error                     <span style="background-color:red;color:white;border:1px solid black;"> x </span> </span>|
-| ----------------------------- |
-| Click "Fix" to fix error.     |
-|                               |
-|  _____                        |
-| | Fix |                       |
-|  ¯¯¯¯¯                        |
-|______________________________ |
-</pre>
-<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-<div id="keks">
-</div>
-<script>
-counter = 0;
-setInterval(function() {
-  var anim = [
-    '└(&#8226;.&#8226;┌）',
-    '└( &#8226;.&#8226; ）┘',
-    '(┐&#8226;.&#8226;）┘',
-    '~(‾▿‾~)',
-    '(~‾▿‾)~',
-    '~(‾▿‾~)',
-    '└(‾◇‾)┐',
-    '┌(‾◇‾)┐',
-    '┌(‾◇‾)┘',
-    '└( &#8226;.&#8226; ）┘'
-  ];
-  $('#keks').html(anim[counter]);
-  counter++;
-  if (counter > 9) {
-    counter = 0;
-  }
-},300);
-</script>
+<body>
+  <p>Dance Animation</p>
+  <div id="keks" style="min-height:50px;"></div>
+
+  <p>
+    Complete Meme:
+    <br/> (╯°□°）╯︵ ┴─┴
+  </p>
+  <p>
+    Positive Meme:
+    <br/> (╮°×°）╮
+    <br/> (╮°o°）╮
+    <br/> (╮°_°）╮
+    <br/> (─*o*）─
+    <br/>
+  </p>
+  <p>
+    Dancing Meme:
+    <br/> ╰(&#8226;.&#8226;╭）
+    <br/> ╰( &#8226;.&#8226; ）╯
+    <br/> (╮&#8226;.&#8226;）╯
+  </p>
+  <p>
+    Table Only:
+    <br/> ┴─┴
+    <br/> ┬─┬
+  </p>
+  <p>
+    Flip sign only:
+    <br/> ︵
+  </p>
+  <pre>
+                ____
+               /. __)
+              /  /
+        . ^^ /  /
+    __/        /
+  <__.|__|-|__|.
+  </pre>
+  <pre>
+   _______________________________
+  |<span style="background-color:blue;color:white;border-top:1px solid blue;border-bottom:1px solid blue;"> Error                     <span style="background-color:red;color:white;box-shadow: 0px 0px 0px 1px rgba(0,0,0,1);"> x </span> </span>|
+  | ----------------------------- |
+  | Click "Fix" to fix error.     |
+  |                               |
+  |  _____                        |
+  | |<span style="background-color:#ccc;"> Fix </span>|                       |
+  |  ¯¯¯¯¯                        |
+  |______________________________ |
+  </pre>
+
+      <table>
+        <thead>
+          <tr>
+            <th colspan="9">Game Area</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th colspan="9"></th>
+          </tr>
+          <tr>
+            <td>|</td>
+            <td></td>
+            <td>|</td>
+            <td></td>
+            <td>|</td>
+            <td></td>
+            <td>|</td>
+            <td>┻━┻</td>
+            <td>|</td>
+          </tr>
+        </tfoot>
+        <tbody>
+          <tr>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+          </tr>
+          <tr>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+            <td style="width:100px;">┻━┻</td>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+          </tr>
+          <tr>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+          </tr>
+          <tr>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+            <td style="width:100px;">┻━┻</td>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+          </tr>
+          <tr>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+          </tr>
+          <tr>
+            <td>|</td>
+            <td style="width:100px;">┻━┻</td>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+          </tr>
+          <tr>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+          </tr>
+          <tr>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+            <td style="width:100px;">┻━┻</td>
+            <td>|</td>
+          </tr>
+          <tr>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+          </tr>
+          <tr>
+            <td>|</td>
+            <td style="width:100px;">┻━┻</td>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+          </tr>
+          <tr>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+            <td style="width:100px;">┻━┻</td>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+          </tr>
+          <tr>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+            <td style="width:100px;"></td>
+            <td>|</td>
+            <tr>
+            <tr>
+              <td>|</td>
+              <td style="width:100px;"></td>
+              <td>|</td>
+              <td style="width:100px;">┻━┻</td>
+              <td>|</td>
+              <td style="width:100px;"></td>
+              <td>|</td>
+              <td style="width:100px;"></td>
+              <td>|</td>
+            </tr>
+            <tr>
+              <td>|</td>
+              <td style="width:100px;"></td>
+              <td>|</td>
+              <td style="width:100px;"></td>
+              <td>|</td>
+              <td style="width:100px;"></td>
+              <td>|</td>
+              <td style="width:100px;"></td>
+              <td>|</td>
+            </tr>
+            <tr>
+              <td>|</td>
+              <td style="width:100px;"></td>
+              <td>|</td>
+              <td style="width:100px;"></td>
+              <td>|</td>
+              <td style="width:100px;">┻━┻</td>
+              <td>|</td>
+              <td style="width:100px;"></td>
+              <td>|</td>
+            </tr>
+            <tr>
+              <td>|</td>
+              <td style="width:100px;"></td>
+              <td>|</td>
+              <td style="width:100px;"></td>
+              <td>|</td>
+              <td style="width:100px;">┻━┻</td>
+              <td>|</td>
+              <td style="width:100px;"></td>
+              <td>|</td>
+            </tr>
+        </tbody>
+      </table>
+  </pre>
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+  <script>
+    max_elements = 100;
+
+
+    }, 300);
+  </script>
 </body>
+
 </html>

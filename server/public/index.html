@@ -7,8 +7,27 @@
 </head>
 
 <body>
-    <div id="viewArea">
-      <div id="gameBoard"></div>
+    <div id="mainWrapper">
+        <div id="score">Score: <span id="scoreValue">0<span></div>
+        <div id="viewArea">
+          <div id="onceATime">Once Upon A Time...</div>
+          <div id="dance"></div>
+          <div id="asciiErrorWrapper">
+              <div id="asciiErrorHeader">
+                  <div id="asciiErrorHeaderText">Error</div>
+                  <div id="asciiErrorHeaderCloseButton">x</div>
+              </div>
+              <div class="asciiErrorRow"><br/></div>
+              <div class="asciiErrorRow asciiErrorRowText">Click "Fix" to fix error.</div>
+              <div class="asciiErrorRow"><br/></div>
+              <div class="asciiErrorRow">
+                  <div id="asciiErrorButton">Fix</div>
+              </div>
+              <div class="asciiErrorRow"><br/></div>
+          </div>
+          <div id="rage"></div>
+          <div id="gameBoard"></div>
+        </div>
     </div>
     <div id="playerStage">
         <div id="one"></div>
