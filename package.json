@@ -1,0 +1,36 @@
+{
+  "name": "kollektivpp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kollektivpp/AsciiTableFlip.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kollektivpp/AsciiTableFlip/issues"
+  },
+  "homepage": "https://github.com/kollektivpp/AsciiTableFlip#readme",
+  "dependencies": {
+    "express": "^4.13.3",
+    "socket.io": "^1.3.7"
+  },
+  "devDependencies": {
+    "babel": "^6.1.18",
+    "babelify": "^6.1.3",
+    "browserify": "^12.0.1",
+    "nodemon": "^1.8.1",
+    "watchify": "^3.6.0"
+  },
+  "scripts": {
+      "start-server": "nodemon ./server/App.js"
+  },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  }
+}
