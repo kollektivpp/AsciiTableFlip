@@ -49,6 +49,28 @@ var GameEngine = GameEngine || {
     },
     createColumn: function(hasTable) {
         return '<div class="column">' + (hasTable ? 'X' : '') + '</div>'
+    },
+    createDance: function() {
+        var danceCounter = 0;
+        this.danceInterval = setInterval(function() {
+            var anim = [
+                '└(&#8226;.&#8226;┌）',
+                '└( &#8226;.&#8226; ）┘',
+                '(┐&#8226;.&#8226;）┘',
+                '~(‾▿‾~)',
+                '(~‾▿‾)~',
+                '~(‾▿‾~)',
+                '└(‾◇‾)┐',
+                '┌(‾◇‾)┐',
+                '┌(‾◇‾)┘',
+                '└( &#8226;.&#8226; ）┘'
+            ];
+            $('#keks').html(anim[danceCounter]);
+            danceCounter++;
+            if (danceCounter > 9) {
+                danceCounter = 0;
+            }
+        }, 300);
     }
 };
 
