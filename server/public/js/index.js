@@ -11,6 +11,7 @@ var GameEngine = GameEngine || {
     },
     startGame: function() {
         var self = this;
+        $('#gameBoard').show();
         $('#gameBoard').html(self.createGameBoard(self.gameGrid));
 
         self.gameLoop = setInterval(function() {
@@ -55,19 +56,20 @@ var GameEngine = GameEngine || {
         return '<div class="column">' + (hasTable ? 'X' : '') + '</div>'
     },
     displayDance: function(elem) {
+        $(elem).show();
         var danceCounter = 0;
         this.danceInterval = setInterval(function() {
             var anim = [
-                '└(&#8226;.&#8226;┌）',
-                '└( &#8226;.&#8226; ）┘',
-                '(┐&#8226;.&#8226;）┘',
+                '╰(&#8226;.&#8226;╭）',
+                '╰( &#8226;.&#8226; ）╯',
+                '(╮&#8226;.&#8226;）╯',
                 '~(‾▿‾~)',
                 '(~‾▿‾)~',
                 '~(‾▿‾~)',
-                '└(‾◇‾)┐',
-                '┌(‾◇‾)┐',
-                '┌(‾◇‾)┘',
-                '└( &#8226;.&#8226; ）┘'
+                '╰(‾◇‾)╮',
+                '╭(‾◇‾)╮',
+                '╭(‾◇‾)╯',
+                '╰( &#8226;.&#8226; ）╯'
             ];
             $(elem).html(anim[danceCounter]);
             danceCounter++;
@@ -79,12 +81,19 @@ var GameEngine = GameEngine || {
     displayDino: function() {
 
     },
-    displayAsciiError: function(elem) {
-        clearInterval(this.danceInterval);
-        $('#asciiErrorWrapper').show();
-    },
     displayRage: function(elem) {
-        $(elem).html('Rage');
+        var rageCounter = 0;
+        this.rageInterval = setInterval(function() {
+            var anim = [
+                '╰(ಠ益ಠ）╯',
+                '╮(ಠ益ಠ）╮'
+            ];
+            $(elem).html(anim[rageCounter]);
+            rageCounter++;
+            if (rageCounter > 1) {
+                rageCounter = 0;
+            }
+        }, 200);
     },
     intro: function() {
         var done = false;
@@ -98,18 +107,22 @@ var GameEngine = GameEngine || {
             }
             switch(counter) {
                 case 0:
-                    $('#gameBoard').html('Once A Time...');
+                    $('#onceATime').hide();
+                    self.displayDance($('#dance'));
                     break;
                 case 1:
-                    self.displayDance($('#gameBoard'));
+                    $('#dance').hide();
+                    clearInterval(self.danceInterval);
+                    $('#asciiErrorWrapper').show();
                     break;
                 case 2:
-                    self.displayAsciiError($('#gameBoard'));
+                    $('#asciiErrorWrapper').hide();
+                    self.displayRage($('#rage'));
+                    $('#rage').show();
                     break;
                 case 3:
-                    self.displayRage($('#gameBoard'));
-                    break;
-                case 4:
+                    $('#rage').hide();
+                    clearInterval(self.rageInterval);
                     self.startGame();
                     done = true;
                     break;

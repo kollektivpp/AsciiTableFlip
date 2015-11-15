@@ -24,7 +24,7 @@ td {
   width: 500px;
 }
 #gameBoard {
-
+    display: none;
 }
 
 #gameBoard .row {
@@ -41,9 +41,27 @@ td {
   width: 100px;
 }
 
+#onceATime {
+    font-size: 40px;
+    text-align: center;
+}
+
+#dance {
+    display: none;
+    font-size: 40px;
+    text-align: center;
+}
+
+#rage {
+    display: none;
+    font-size: 40px;
+    text-align: center;
+}
+
 #asciiErrorWrapper {
     display: none;
     width: 243px;
+    zoom: 200%;
 }
 #asciiErrorHeader {
     background-color:blue;
