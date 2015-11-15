@@ -1,14 +1,14 @@
 var GameEngine = GameEngine || {
     initialize: function() {
         var self = this;
-        self.MAX_ELEMENTS = 100;
+        self.MAX_ELEMENTS = 30;
         self.gameGrid = self.createGrid();
         self.gameBoard = $('#gameBoard');
         self.gameTickCounter = 0;
         self.score = 0;
         self.gamerPosition = 0;
         self.positionDivs = document.querySelectorAll('#playerStage div');
-        self.tickSpeed = 500;
+        self.tickSpeed = 800;
 
 		self.movePlayerToPosition(1);
         self.intro();
@@ -41,13 +41,17 @@ var GameEngine = GameEngine || {
     },
     movePlayerToPosition: function(position) {
         GameEngine.gamerPosition = position -1;
-        $('#playerStage div').text('');
-        GameEngine.positionDivs[position - 1].innerText = 'hier';
+        $('#playerStage div').html('');
+        GameEngine.basicMood(GameEngine.positionDivs[position - 1]);
     },
     createGrid: function() {
         var grid = [];
         for (var index = 0; index < this.MAX_ELEMENTS; index++) {
-            grid[index] = Math.floor((Math.random() * 5) + 0);
+            if (index % 5 === 0) {
+                grid[index] = 4;
+            } else {
+                grid[index] = Math.floor((Math.random() * 5) + 0);
+            }
         }
         console.log(grid);
         return grid;
@@ -133,7 +137,8 @@ var GameEngine = GameEngine || {
             ];
             $(elem).html(anim[basicMoodCounter]);
             if (basicMoodCounter > 1) {
-                clearInterval(self.basicMoodInterval);
+                // clearInterval(self.basicMoodInterval);
+                basicMoodCounter = 0;
             }
         }, 200);
     },
