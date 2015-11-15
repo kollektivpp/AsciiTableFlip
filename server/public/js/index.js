@@ -25,9 +25,9 @@ var GameEngine = GameEngine || {
             else {
                 console.log("This browser doesn't support the Web Audio API. Please use the current version of Chrome!");
             }
-        })();  
+        })();
 
-        self.loadAudio();        
+        self.loadAudio();
     },
     loadAudio: function() {
         var self = this;
@@ -50,12 +50,13 @@ var GameEngine = GameEngine || {
             source.loop = true;
             source.buffer = self.backgroundMusic;
             source.connect(self.audioContext.destination);
-            source.start(0);  
+            source.start(0);
         }
     },
     startGame: function() {
         var self = this;
         $('#gameBoard').show();
+        $('#playerStage').show();
         $('#gameBoard').html(self.createGameBoard(self.gameGrid));
         self.playBackgroundMusic();
     },
@@ -67,6 +68,7 @@ var GameEngine = GameEngine || {
           }
           if (self.gameGrid[self.gameTickCounter] == self.gamerPosition) {
             self.score++;
+            self.flipEm(GameEngine.positionDivs[position - 1]);
             self.setScore(self.score);
           }
 
@@ -157,28 +159,31 @@ var GameEngine = GameEngine || {
     flipEm: function(elem) {
         var flipEmCounter = 0;
         var self = this;
-        self.flipEmInterval = setInterval(function() {
+        clearInterval(self.basicMoodInterval);
+        this.flipEmInterval = setInterval(function() {
             var anim = [
                 '(╮°_°）╮  ┬─┬',
                 '(╯°□°）╯︵ ┴─┴'
             ];
             $(elem).html(anim[flipEmCounter]);
+            flipEmCounter++;
             if (rageCounter > 1) {
                 clearInterval(self.flipEmInterval);
+                self.basicMood(elem);
             }
         }, 200);
     },
     basicMood: function(elem) {
         var basicMoodCounter = 0;
         var self = this;
-        self.basicMoodInterval = setInterval(function() {
+        this.basicMoodInterval = setInterval(function() {
             var anim = [
                 '(╮°×°）╮',
                 '(╮°o°）╮'
             ];
             $(elem).html(anim[basicMoodCounter]);
+            basicMoodCounter++;
             if (basicMoodCounter > 1) {
-                // clearInterval(self.basicMoodInterval);
                 basicMoodCounter = 0;
             }
         }, 200);
