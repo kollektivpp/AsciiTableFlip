@@ -29,6 +29,10 @@
 
         socket.on('client index', function(msg) {
             document.body.innerHTML = msg;
+        });
+
+        socket.on('master disconnect', function() {
+            document.body.innerHTML = 'Main stage disconnected';
         })
 
         document.body.addEventListener('click', function() {
