@@ -35,6 +35,7 @@ td {
   overflow: hidden;
 }
 #playerStage {
+    display: none;
     width: 498px;
     height: 50px;
     margin-top: 1px;

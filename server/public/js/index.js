@@ -56,6 +56,7 @@ var GameEngine = GameEngine || {
     startGame: function() {
         var self = this;
         $('#gameBoard').show();
+        $('#playerStage').show();
         $('#gameBoard').html(self.createGameBoard(self.gameGrid));
         self.playBackgroundMusic();
     },
@@ -67,6 +68,7 @@ var GameEngine = GameEngine || {
           }
           if (self.gameGrid[self.gameTickCounter] == self.gamerPosition) {
             self.score++;
+            self.flipEm(GameEngine.positionDivs[position - 1]);
             self.setScore(self.score);
           }
 
