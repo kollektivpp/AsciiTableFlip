@@ -67,7 +67,7 @@ var GameEngine = GameEngine || {
         return row + '</div>';
     },
     createColumn: function(hasTable) {
-        return '<div class="column">' + (hasTable ? 'X' : '') + '</div>'
+        return '<div class="column">' + (hasTable ? '┬─┬' : '') + '</div>'
     },
     displayDance: function(elem) {
         $(elem).show();
@@ -106,6 +106,34 @@ var GameEngine = GameEngine || {
             rageCounter++;
             if (rageCounter > 1) {
                 rageCounter = 0;
+            }
+        }, 200);
+    },
+    flipEm: function(elem) {
+        var flipEmCounter = 0;
+        var self = this;
+        self.flipEmInterval = setInterval(function() {
+            var anim = [
+                '(╮°_°）╮  ┬─┬',
+                '(╯°□°）╯︵ ┴─┴'
+            ];
+            $(elem).html(anim[flipEmCounter]);
+            if (rageCounter > 1) {
+                clearInterval(self.flipEmInterval);
+            }
+        }, 200);
+    },
+    basicMood: function(elem) {
+        var basicMoodCounter = 0;
+        var self = this;
+        self.basicMoodInterval = setInterval(function() {
+            var anim = [
+                '(╮°×°）╮',
+                '(╮°o°）╮'
+            ];
+            $(elem).html(anim[basicMoodCounter]);
+            if (basicMoodCounter > 1) {
+                clearInterval(self.basicMoodInterval);
             }
         }, 200);
     },
