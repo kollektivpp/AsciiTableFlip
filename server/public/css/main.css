@@ -38,9 +38,10 @@ td {
     width: 498px;
     height: 50px;
     margin-top: 1px;
-    border: 1px solid green;
+    border: 1px solid blue;
     display: flex;
     flex-direction: row;
+    margin-top: -30px;
 }
 #playerStage div {
     flex: 1;
