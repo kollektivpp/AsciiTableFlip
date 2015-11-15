@@ -10,7 +10,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/client', function(req, res) {
-    res.sendFile('index.html', {root: 'client/'});
+    res.sendFile('index.html', {root: 'client/views'});
 });
 
 io.on('connection', function(socket){
