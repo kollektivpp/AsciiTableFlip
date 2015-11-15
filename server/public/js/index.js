@@ -41,7 +41,7 @@ var GameEngine = GameEngine || {
             $('#scoreValue').html(value);
     },
     movePlayerToPosition: function(position) {
-        GameEngine.gamerPosition = position;
+        GameEngine.gamerPosition = position -1;
         $('#playerStage div').text('');
         GameEngine.positionDivs[position - 1].innerText = 'hier';
     },
