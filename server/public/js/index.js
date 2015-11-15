@@ -19,13 +19,15 @@ var GameEngine = GameEngine || {
             clearInterval(self.gameLoop);
             return;
           }
-          console.log(self.gameGrid[self.gameTickCounter]);
           if (self.gameGrid[self.gameTickCounter] == self.gamerPosition) {
             self.score++;
-            console.log("Boooom");
+            self.setScore(self.score);
           }
           self.gameTickCounter++;
         }, 500);
+    },
+    setScore: function(value) {
+            $('#scoreValue').html(value);
     },
     movePlayerToPosition: function(position) {
         document.body.innerHTML = position;

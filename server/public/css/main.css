@@ -18,6 +18,16 @@ tfoot td:odd {
 td {
   text-align: center;
 }
+#mainWrapper {
+    margin: 0 auto;
+    width: 600px;
+}
+#score {
+    font-size: 20px;
+}
+#scoreValue {
+    
+}
 #viewArea {
   border: 2px solid red;
   height: 500px;
