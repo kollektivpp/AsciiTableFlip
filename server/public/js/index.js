@@ -56,7 +56,7 @@ var GameEngine = GameEngine || {
     startGame: function() {
         var self = this;
         $('#gameBoard').show();
-        $('#playerStage').show();
+        $('#playerStage').attr('style', 'display: -webkit-flex; display: flex');
         $('#gameBoard').html(self.createGameBoard(self.gameGrid));
         self.playBackgroundMusic();
     },
