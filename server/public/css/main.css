@@ -51,7 +51,7 @@ td {
 #gameBoard {
 	display: none;
     position: relative;
-    top: -792px;
+    top: -746px;
 }
 
 #gameBoard .row {
