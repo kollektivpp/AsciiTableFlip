@@ -59,6 +59,7 @@ var GameEngine = GameEngine || {
         $('#playerStage').attr('style', 'display: -webkit-flex; display: flex');
         $('#gameBoard').html(self.createGameBoard(self.gameGrid));
         self.playBackgroundMusic();
+        self.startGameLoop();
     },
     startGameLoop: function() {
         var self = GameEngine;
@@ -68,7 +69,7 @@ var GameEngine = GameEngine || {
           }
           if (self.gameGrid[self.gameTickCounter] == self.gamerPosition) {
             self.score++;
-            self.flipEm(GameEngine.positionDivs[position - 1]);
+            self.flipEm(GameEngine.positionDivs[self.gamerPosition]);
             self.setScore(self.score);
           }
 
@@ -85,6 +86,8 @@ var GameEngine = GameEngine || {
     movePlayerToPosition: function(position) {
         GameEngine.gamerPosition = position -1;
         $('#playerStage div').html('');
+        clearInterval(GameEngine.basicMoodInterval);
+        clearInterval(GameEngine.flipEmInterval);
         GameEngine.basicMood(GameEngine.positionDivs[position - 1]);
     },
     createGrid: function() {
@@ -159,7 +162,7 @@ var GameEngine = GameEngine || {
     flipEm: function(elem) {
         var flipEmCounter = 0;
         var self = this;
-        clearInterval(self.basicMoodInterval);
+        clearInterval(this.basicMoodInterval);
         this.flipEmInterval = setInterval(function() {
             var anim = [
                 '(╮°_°）╮  ┬─┬',
@@ -167,7 +170,7 @@ var GameEngine = GameEngine || {
             ];
             $(elem).html(anim[flipEmCounter]);
             flipEmCounter++;
-            if (rageCounter > 1) {
+            if (flipEmCounter > 1) {
                 clearInterval(self.flipEmInterval);
                 self.basicMood(elem);
             }
