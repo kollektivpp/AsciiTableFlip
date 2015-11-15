@@ -19,12 +19,26 @@ td {
   text-align: center;
 }
 #viewArea {
-  border: 2px solid red;
-  height: 500px;
+  /*border: 2px solid red;*/
+  height: 493px;
   width: 500px;
+  overflow: hidden;
 }
-#gameBoard {
+#playerStage {
+    width: 498px;
+    height: 50px;
+    margin-top: 1px;
+    border: 1px solid green;
+    display: flex;
+    flex-direction: row;
+}
+#playerStage div {
+    flex: 1;
+}
 
+#gameBoard {
+    position: relative;
+    top: -3545px;
 }
 
 #gameBoard .row {
@@ -34,9 +48,13 @@ td {
 
 #gameBoard .row .column {
   border-right: 1px solid blue;
-  border-top: 1px solid blue;
+  /*border-top: 1px solid blue;*/
   flex: 1;
   height: 40px;
+  line-height: 40px;
   text-align: center;
   width: 100px;
+}
+#gameBoard .row .column:first-child {
+    border-left: 1px solid blue;
 }

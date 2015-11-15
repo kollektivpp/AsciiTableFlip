@@ -3,27 +3,40 @@ var GameEngine = GameEngine || {
         var self = this;
         self.MAX_ELEMENTS = 100;
         self.gameGrid = self.createGrid();
+        self.gameBoard = $('#gameBoard');
         self.gameTickCounter = 0;
         self.score = 0;
-        self.gamerPosition = 1;
+        self.gamerPosition = 0;
+        self.positionDivs = document.querySelectorAll('#playerStage div');
+        self.tickSpeed = 500;
 
+        self.movePlayerToPosition(1);
         $('#gameBoard').html(self.createGameBoard(self.gameGrid));
-
+    },
+    startGameLoop: function() {
+        var self = GameEngine;
         self.gameLoop = setInterval(function() {
           if (self.gameTickCounter >= self.MAX_ELEMENTS) {
             clearInterval(self.gameLoop);
             return;
           }
-          console.log(self.gameGrid[self.gameTickCounter]);
+        //   console.log(self.gameGrid[self.gameTickCounter]);
           if (self.gameGrid[self.gameTickCounter] == self.gamerPosition) {
             self.score++;
             console.log("Boooom");
           }
+
+          self.gameBoard.animate({
+              top: "+=41"
+          }, self.tickSpeed);
+
           self.gameTickCounter++;
-        }, 500);
+        }, self.tickSpeed);
     },
     movePlayerToPosition: function(position) {
-        document.body.innerHTML = position;
+        GameEngine.gamerPosition = position;
+        $('#playerStage div').text('');
+        GameEngine.positionDivs[position - 1].innerText = 'hier';
     },
     createGrid: function() {
         var grid = [];
@@ -56,6 +69,6 @@ window.addEventListener('load', function() {
     var socket = io();
     socket.emit('connect server');
 
-    socket.on('client interaction', GameEngine.movePlayerToPosition);
     GameEngine.initialize();
+    socket.on('client interaction', GameEngine.movePlayerToPosition);
 });
