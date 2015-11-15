@@ -38,9 +38,48 @@
     <script src="/socket.io/socket.io.js"></script>
     <script>
         var socket = io();
+        var clientIndex;
+        var buzzerSound = null;
+
+        var audioContext = (function() {
+            if (window.hasOwnProperty( 'webkitAudioContext' )) {
+                return new webkitAudioContext();
+            }
+            else if (window.hasOwnProperty( 'AudioContext' )) {
+                return new AudioContext();
+            }
+            else {
+                console.log("This browser doesn't support the Web Audio API. Please use the current version of Chrome!");
+            }
+        })();
+
+        function loadAudio() {
+          var request = new XMLHttpRequest();
+          request.open('GET', '/sounds/buzzer_0' + clientIndex + '.wav', true);
+          request.responseType = 'arraybuffer';
+
+          // Decode asynchronously
+          request.onload = function() {
+            audioContext.decodeAudioData(request.response, function(buffer) {
+              buzzerSound = buffer;
+            });
+          }
+          request.send();
+        }
+
+        function playBuzzer() {
+            if (buzzerSound !== null) {
+                var source = audioContext.createBufferSource();
+                source.buffer = buzzerSound;
+                source.connect(audioContext.destination);
+                source.start(0);  
+            }
+        }
 
         socket.on('client index', function(msg) {
             document.body.innerHTML = msg;
+            clientIndex = msg;
+            loadAudio();
         });
 
         socket.on('master disconnect', function() {
@@ -48,11 +87,22 @@
             document.body.className = "warning";
         })
 
-        document.body.addEventListener('click', function() {
+        // iOS web audio initialization
+        document.body.addEventListener('touchend', function( e ) {
+            var osc = audioContext.createOscillator();
+            osc.connect(audioContext.destination);
+            osc.start(0);
+            osc.stop(0);
+        });
+
+        document.body.addEventListener('click', function( e ) {
+            e.stopPropagation();
             socket.emit('client tap');
         });
-        document.body.addEventListener('touchstart', function() {
+        document.body.addEventListener('touchstart', function( e ) {
+            e.stopPropagation();
             socket.emit('client tap');
+            playBuzzer();
         });
 
         socket.emit('connect client');
