@@ -15,15 +15,15 @@ app.get('/client', function(req, res) {
 });
 
 io.on('connection', function(socket){
-    socket.on('disconnect', function() {
-        if (socket.id === master_socket) {
-            io.emit('master disconnect');
-            master_socket = null;
-            connected_clients = [];
-        } else {
-            connected_clients.pop(socket.id);
-        }
-    });
+    // socket.on('disconnect', function() {
+    //     if (socket.id === master_socket) {
+    //         io.emit('master disconnect');
+    //         master_socket = null;
+    //         connected_clients = [];
+    //     } else {
+    //         connected_clients.pop(socket.id);
+    //     }
+    // });
 
     socket.on('connect server', function(msg){
         master_socket = socket.id;
@@ -34,6 +34,7 @@ io.on('connection', function(socket){
             return console.log('Can not deal with more than 4 clients');
         }
         connected_clients.push(socket.id);
+        console.log(connected_clients);
         io.to(socket.id).emit('client index', connected_clients.length);
     });
 
