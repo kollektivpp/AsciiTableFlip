@@ -1,0 +1,42 @@
+html, body {
+  background-color: black;
+  color: white;
+}
+thead th {
+  border-bottom: 1px solid white;
+}
+tfoot th {
+    border-top:1px solid white;
+}
+tfoot td {
+  border-bottom:1px solid white;
+  padding: 10px 0;
+}
+tfoot td:odd {
+  width:100px;
+}
+td {
+  text-align: center;
+}
+#viewArea {
+  border: 2px solid red;
+  height: 500px;
+  width: 500px;
+}
+#gameBoard {
+
+}
+
+#gameBoard .row {
+  display: flex;
+  flex-direction: row;
+}
+
+#gameBoard .row .column {
+  border-right: 1px solid blue;
+  border-top: 1px solid blue;
+  flex: 1;
+  height: 40px;
+  text-align: center;
+  width: 100px;
+}
