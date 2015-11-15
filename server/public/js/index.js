@@ -59,6 +59,7 @@ var GameEngine = GameEngine || {
         $('#playerStage').show();
         $('#gameBoard').html(self.createGameBoard(self.gameGrid));
         self.playBackgroundMusic();
+        self.startGameLoop();
     },
     startGameLoop: function() {
         var self = GameEngine;
