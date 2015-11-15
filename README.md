@@ -17,7 +17,7 @@ But than the error strikes back.
 That was to much for Mr. Flip Em Flip.
 He was totally f**ked up and started to get into the raging mode, or as we better known, his "table flip mode".
 
-# The game
+## The game
 At this point the game begins.
 You can control Mr. Flip Em Flip.
 Connect four devices via a web browser.
@@ -27,17 +27,26 @@ Everytime a table drops into the gamer space on the bottom of the game area, you
 Mr. Flip Em Flip will flip the table and your game score will increase.
 After 30 tables you will see the outro screen and your final game score.
 
-### Install
+## Screenshots
+
+![Intro - Dance](https://github.com/kollektivpp/AsciiTableFlip/screenshots/game-dance.png "Intro - Dance")
+
+![Intro - Error](https://github.com/kollektivpp/AsciiTableFlip/screenshots/game-error.png "Intro - Error")
+
+![Main Game](https://github.com/kollektivpp/AsciiTableFlip/screenshots/game.png "Main Game")
+
+
+## Install
 `$ npm install`
 
-### Start the master
+## Start the master
 `$ npm run start-server`
 default port is 8080
 
 Switching the port:
 `$ npm run start-server --port=4343`
 
-### Start the clients
+## Start the clients
 You have to connect each client manually.
 Therefore start your web browser (we only tested it with chrome on iPhone and Android) and enter the IP address of your master on port 8080 and the path `client`.
 For example:
@@ -46,7 +55,7 @@ For example:
 If the registration was successfully you will see the cell number you are connected to in your browsers.
 After every game or every master page refresh you have to connect the clients again.
 
-### License
+## License
 You can do what ever you want with our code.
 Even with the music which was created by [Thomas Fett](https://github.com/ThomasFett).
 It would be a pleasure for us if you notice us in your app, if you using our stuff.
