@@ -1,15 +1,14 @@
 'use strict';
 
-var app = require('express')(),
+var express = require('express'),
+    app = express(),
     server = require('http').Server(app),
     io = require('socket.io')(server),
     port = process.env.npm_config_port || 8080,
     connected_clients = [],
     master_socket = null;
 
-app.get('/', function(req, res) {
-    res.sendFile(__dirname + '/views/index.html');
-});
+app.use(express.static(__dirname + '/public'));
 
 app.get('/client', function(req, res) {
     res.sendFile('index.html', {root: 'client/views'});
