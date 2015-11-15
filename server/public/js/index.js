@@ -1,6 +1,12 @@
-var socket = io();
-socket.emit('connect server');
+var GameEngine = GameEngine || {
+    movePlayerToPosition: function(position) {
+        document.body.innerHTML = position;
+    }
+};
 
-socket.on('client interaction', function(msg){
-    console.log(msg);
+window.addEventListener('load', function() {
+    var socket = io();
+    socket.emit('connect server');
+
+    socket.on('client interaction', GameEngine.movePlayerToPosition);
 });
