@@ -22,8 +22,7 @@ var GameEngine = GameEngine || {
         var self = GameEngine;
         self.gameLoop = setInterval(function() {
           if (self.gameTickCounter >= self.MAX_ELEMENTS) {
-            clearInterval(self.gameLoop);
-            return;
+            self.outro();
           }
           if (self.gameGrid[self.gameTickCounter] == self.gamerPosition) {
             self.score++;
@@ -101,7 +100,7 @@ var GameEngine = GameEngine || {
         this.rageInterval = setInterval(function() {
             var anim = [
                 '╰(ಠ益ಠ）╯',
-                '╮(ಠ益ಠ）╮'
+                '╭(ಠ益ಠ）╮'
             ];
             $(elem).html(anim[rageCounter]);
             rageCounter++;
@@ -109,6 +108,12 @@ var GameEngine = GameEngine || {
                 rageCounter = 0;
             }
         }, 200);
+    },
+    outro: function() {
+        var self = this;
+        $('#gameBoard').hide();
+        clearInterval(self.gameLoop);
+        $('#outro').show();
     },
     intro: function() {
         var done = false;
