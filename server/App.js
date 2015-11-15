@@ -17,7 +17,9 @@ app.get('/client', function(req, res) {
 io.on('connection', function(socket){
     socket.on('disconnect', function() {
         if (socket.id === master_socket) {
+            io.emit('master disconnect');
             master_socket = null;
+            connected_clients = [];
         } else {
             connected_clients.pop(socket.id);
         }
