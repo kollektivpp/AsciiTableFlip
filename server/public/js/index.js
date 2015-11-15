@@ -100,7 +100,7 @@ var GameEngine = GameEngine || {
         this.rageInterval = setInterval(function() {
             var anim = [
                 '╰(ಠ益ಠ）╯',
-                '╮(ಠ益ಠ）╮'
+                '╭(ಠ益ಠ）╮'
             ];
             $(elem).html(anim[rageCounter]);
             rageCounter++;
