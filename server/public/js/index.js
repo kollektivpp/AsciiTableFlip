@@ -12,11 +12,52 @@ var GameEngine = GameEngine || {
 
 		self.movePlayerToPosition(1);
         self.intro();
+
+        self.backgroundMusic = null;
+
+        self.audioContext = (function() {
+            if (window.hasOwnProperty( 'webkitAudioContext' )) {
+                return new webkitAudioContext();
+            }
+            else if (window.hasOwnProperty( 'AudioContext' )) {
+                return new AudioContext();
+            }
+            else {
+                console.log("This browser doesn't support the Web Audio API. Please use the current version of Chrome!");
+            }
+        })();  
+
+        self.loadAudio();        
+    },
+    loadAudio: function() {
+        var self = this;
+        var request = new XMLHttpRequest();
+          request.open('GET', '/sounds/background.mp3', true);
+          request.responseType = 'arraybuffer';
+
+          // Decode asynchronously
+          request.onload = function() {
+            self.audioContext.decodeAudioData(request.response, function(buffer) {
+              self.backgroundMusic = buffer;
+            });
+          }
+          request.send();
+    },
+    playBackgroundMusic: function() {
+        var self = this;
+        if (self.backgroundMusic !== null) {
+            var source = self.audioContext.createBufferSource();
+            source.loop = true;
+            source.buffer = self.backgroundMusic;
+            source.connect(self.audioContext.destination);
+            source.start(0);  
+        }
     },
     startGame: function() {
         var self = this;
         $('#gameBoard').show();
         $('#gameBoard').html(self.createGameBoard(self.gameGrid));
+        self.playBackgroundMusic();
     },
     startGameLoop: function() {
         var self = GameEngine;
