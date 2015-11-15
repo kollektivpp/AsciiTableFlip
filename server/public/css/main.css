@@ -44,12 +44,14 @@ td {
 }
 #playerStage div {
     flex: 1;
+    line-height: 50px;
+    text-align: center;
 }
 
 #gameBoard {
 	display: none;
     position: relative;
-    top: -3545px;
+    top: -792px;
 }
 
 #gameBoard .row {
