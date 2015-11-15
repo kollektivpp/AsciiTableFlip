@@ -29,11 +29,11 @@ After 30 tables you will see the outro screen and your final game score.
 
 ## Screenshots
 
-![Intro - Dance](https://github.com/kollektivpp/AsciiTableFlip/screenshots/game-dance.png "Intro - Dance")
+![Intro - Dance](https://raw.githubusercontent.com/kollektivpp/AsciiTableFlip/master/screenshots/game-dance.png "Intro - Dance")
 
-![Intro - Error](https://github.com/kollektivpp/AsciiTableFlip/screenshots/game-error.png "Intro - Error")
+![Intro - Error](https://raw.githubusercontent.com/kollektivpp/AsciiTableFlip/master/screenshots/game-error.png "Intro - Error")
 
-![Main Game](https://github.com/kollektivpp/AsciiTableFlip/screenshots/game.png "Main Game")
+![Main Game](https://raw.githubusercontent.com/kollektivpp/AsciiTableFlip/master/screenshots/game.png "Main Game")
 
 
 ## Install
