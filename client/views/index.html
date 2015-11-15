@@ -19,6 +19,12 @@
             color: white;
             font-weight: bold;
         }
+
+        body.warning {
+            font-size: 50px;
+            line-height: 30px;
+            margin-top: 30px;
+        }
     </style>
 </head>
 
@@ -32,7 +38,8 @@
         });
 
         socket.on('master disconnect', function() {
-            document.body.innerHTML = 'Main stage disconnected';
+            document.body.innerHTML = 'No Main stage available';
+            document.body.className = "warning";
         })
 
         document.body.addEventListener('click', function() {
