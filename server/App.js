@@ -6,11 +6,11 @@ var app = require('express')(),
     port = process.env.npm_config_port || 8080;
 
 app.get('/', function(req, res) {
-    res.sendFile(__dirname + '/index.html');
+    res.sendFile(__dirname + '/views/index.html');
 });
 
 app.get('/client', function(req, res) {
-    res.sendFile(__dirname + './../client/index.html');
+    res.sendFile('index.html', {root: 'client/'});
 });
 
 io.on('connection', function(socket){
